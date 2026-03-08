@@ -1,0 +1,145 @@
+{
+  "model": {
+    "name": "Isolation Forest",
+    "algorithm": "sklearn.ensemble.IsolationForest",
+    "n_estimators": 100,
+    "contamination": 0.07,
+    "training_time_seconds": 0.109,
+    "features_used": [
+      "tds_value",
+      "voltage",
+      "tds_rolling_mean",
+      "tds_rolling_std",
+      "tds_rate_of_change",
+      "tds_z_score",
+      "tds_rolling_range",
+      "tds_deviation",
+      "tds_voltage_ratio",
+      "spike_count"
+    ],
+    "n_features": 10,
+    "trained_at": "2026-03-09T19:33:11.398708"
+  },
+  "dataset": {
+    "total_samples": 1202,
+    "tds_mean": 119.67,
+    "tds_std": 121.38,
+    "tds_min": 0.0,
+    "tds_max": 628.81,
+    "temp_mean": 31.27,
+    "temp_min": 26.51,
+    "temp_max": 33.0
+  },
+  "anomaly_detection": {
+    "total_anomalies": 85,
+    "anomaly_rate": 7.07,
+    "normal_count": 1117,
+    "top_anomalies": [
+      {
+        "entry_id": 2,
+        "timestamp": "2026-03-04T14:32:19+00:00",
+        "tds_value": 318.99,
+        "voltage": 0.2815,
+        "temperature": 32.79,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.7124
+      },
+      {
+        "entry_id": 67,
+        "timestamp": "2026-03-04T14:53:59+00:00",
+        "tds_value": 395.67,
+        "voltage": 0.2857,
+        "temperature": 32.92,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.6781
+      },
+      {
+        "entry_id": 88,
+        "timestamp": "2026-03-04T15:00:59+00:00",
+        "tds_value": 410.44,
+        "voltage": 0.2788,
+        "temperature": 32.96,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.7286
+      },
+      {
+        "entry_id": 104,
+        "timestamp": "2026-03-04T15:06:19+00:00",
+        "tds_value": 580.54,
+        "voltage": 1.5229,
+        "temperature": 32.78,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.931
+      },
+      {
+        "entry_id": 117,
+        "timestamp": "2026-03-04T15:10:39+00:00",
+        "tds_value": 517.24,
+        "voltage": 1.4857,
+        "temperature": 32.67,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.7563
+      },
+      {
+        "entry_id": 125,
+        "timestamp": "2026-03-04T15:13:19+00:00",
+        "tds_value": 393.27,
+        "voltage": 0.2821,
+        "temperature": 32.67,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.7852
+      },
+      {
+        "entry_id": 133,
+        "timestamp": "2026-03-04T15:15:59+00:00",
+        "tds_value": 478.95,
+        "voltage": 1.0878,
+        "temperature": 32.89,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.7875
+      },
+      {
+        "entry_id": 134,
+        "timestamp": "2026-03-04T15:16:19+00:00",
+        "tds_value": 0.0,
+        "voltage": 0.2676,
+        "temperature": 32.48,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.6458
+      },
+      {
+        "entry_id": 199,
+        "timestamp": "2026-03-04T15:37:59+00:00",
+        "tds_value": 362.87,
+        "voltage": 1.0244,
+        "temperature": 32.7,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.6835
+      },
+      {
+        "entry_id": 243,
+        "timestamp": "2026-03-04T15:52:39+00:00",
+        "tds_value": 519.0,
+        "voltage": 1.1745,
+        "temperature": 32.55,
+        "prediction": -1,
+        "is_anomaly": true,
+        "anomaly_score": 0.8284
+      }
+    ]
+  },
+  "charts": {
+    "tds_timeline": "C:\\Users\\chait\\Downloads\\IOT-Water-Quality-Monitering\\ml\\charts\\tds_anomaly_timeline.png",
+    "score_distribution": "C:\\Users\\chait\\Downloads\\IOT-Water-Quality-Monitering\\ml\\charts\\anomaly_score_distribution.png",
+    "pipeline_summary": "C:\\Users\\chait\\Downloads\\IOT-Water-Quality-Monitering\\ml\\charts\\pipeline_summary.png"
+  }
+}
