@@ -1,190 +1,113 @@
-### Water Quality Monitoring System
+# IoT Water Quality Monitoring System
 
-Hey there! Welcome to AquaQuality - your smart solution for monitoring water quality in real-time! We've built this system to make water quality monitoring more efficient and accessible. Whether you're monitoring drinking water, industrial water, or environmental water bodies, this platform has got you covered!
+Welcome to the **IoT Water Quality Monitoring** project! This system provides an end-to-end solution for monitoring water quality in real-time, leveraging IoT sensors, cloud data storage, a dynamic React dashboard, and Machine Learning for anomaly detection.
 
-## What's Inside? 
+## 🌟 Key Features
 
-### Real-time Monitoring
-Features to help you keep track of water quality:
+### Real-Time Monitoring
+- **Live Dashboard**: View real-time temperature, TDS (Total Dissolved Solids), and EC (Electrical Conductivity).
+- **Interactive Charts**: Visualize water quality trends and recent data points.
+- **Responsive UI**: A premium, dark-themed glassmorphism interface built with Tailwind CSS.
 
-- Live monitoring that shows you what's happening right now
-- Interactive dashboards that make it easy to spot quality issues
-- Smart analytics that help you understand water quality patterns
+### Machine Learning & Analytics
+- **Anomaly Detection**: Uses an **Isolation Forest** ML model to detect abnormal water quality readings.
+- **Historical Analysis**: Review historical data and feature importance charts.
+- **Data Visualizations**: Detailed analytics pages utilizing Recharts.
 
-### Data Analytics
-Making water quality analysis better:
+### IoT Hardware
+- **ESP32 & Sensors**: Arduino code engineered to accurately collect data from TDS and Temperature sensors.
+- **ThingSpeak Integration**: Streams sensor data seamlessly from the ESP32 directly to the cloud.
 
-- Plan and optimize monitoring schedules
-- Keep track of historical data and make real-time updates
-- Monitor parameters in real-time to provide accurate information
+---
 
-### Machine Learning Integration
-Making water quality prediction smarter:
+## 🛠️ Tech Stack
 
-- Easy-to-use prediction models
-- Smart scheduling system for maintenance
-- Track water quality trends in real-time
+**Frontend:**
+- React 18 + TypeScript
+- Vite (Build Tool)
+- Tailwind CSS (Styling & Dark Mode)
+- Recharts (Data Visualization)
+- Lucide React (Icons)
 
-### User Management
-Keeping things secure and personal:
+**Backend / Machine Learning:**
+- Python & Scikit-learn (Isolation Forest)
+- ThingSpeak API (Cloud Data Logging)
 
-- Safe and secure login system
-- Personalized dashboards for users
-- Easy data export functionality
-
-## Tech Stuff 🛠️
-
-Used to build this:
-
-- React.js for the frontend
-- TypeScript for type safety
-- Tailwind CSS for styling
-- ThingSpeak for IoT data storage
-- ESP32 for hardware control
-
-## Getting Started 🚀
-
-### What You'll Need
-- Node.js (v14 or higher)
-- npm (v6 or higher)
+**Hardware:**
 - ESP32 Microcontroller
-- Analog TDS Sensor
 - DS18B20 Temperature Sensor
-- Breadboard and connecting wires
-- Power supply
+- Analog TDS Sensor
+- Arduino IDE (C++)
 
-### Let's Get It Running!
+---
 
-First, clone the repository:
+## 🚀 Getting Started
+
+### 1. Hardware Setup (Arduino)
+1. Wire your ESP32 with the TDS and DS18B20 sensors.
+2. Open the `arduino_code/water_quality_monitor.ino` file in the Arduino IDE.
+3. Update your WiFi credentials and **ThingSpeak API Keys**.
+4. Flash the code to your ESP32.
+
+### 2. Frontend Dashboard Setup
+Ensure you have Node.js (v18+) and npm installed.
+
 ```bash
-git clone https://github.com/zeusXtruealpha/IOT-Water-Quality-Monitering.git waterqm
-cd waterqm
-```
+# Clone the repository
+git clone https://github.com/iamchitturi/IOT-PROJECT.git
+cd IOT-PROJECT
 
-Install the dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-Set up ThingSpeak:
-1. Create a new ThingSpeak channel
-2. Configure your ESP32 with the ThingSpeak API key
-3. Update the configuration in your code
-
-Start the development server:
-```bash
+# Start the development server
 npm run dev
 ```
 
-## Project Structure 📁
+### 3. Machine Learning Setup (Optional)
+If you want to train or modify the anomaly detection model:
 
-Here's how we've organized things:
-
-```
-src/
-├── components/         # All our React components
-│   ├── SensorCard.tsx
-│   ├── WaterQualityChart.tsx
-│   ├── ModelCard.tsx
-│   └── ... (and more!)
-├── pages/             # Page components
-│   ├── Home.tsx
-│   ├── Dashboard.tsx
-│   ├── DataAnalytics.tsx
-│   └── ... (and more!)
-├── services/          # API and service functions
-│   ├── thingspeak.ts
-│   └── mlModels.ts
-└── styles/           # CSS and styling files
-    └── index.css
+```bash
+cd ml
+pip install -r requirements.txt
+python pipeline.py
 ```
 
-## Dependencies 📦
+---
 
-Here are the main packages we're using:
+## 📁 Project Structure
 
-### Core Stuff
-```json
-{
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2",
-    "@tanstack/react-query": "^5.56.2",
-    "recharts": "^2.12.7",
-    "lucide-react": "^0.462.0",
-    "tailwindcss": "^3.4.11",
-    "shadcn/ui": "latest"
-  }
-}
+```text
+IOT-PROJECT/
+├── arduino_code/        # ESP32 C++ code for sensors and ThingSpeak
+├── ml/                  # Python machine learning models and visualizations
+├── public/              # Static assets
+└── src/                 
+    ├── components/      # Reusable React UI components
+    ├── hooks/           # Custom React hooks
+    ├── lib/             # Utility functions
+    ├── pages/           # Dashboard, Analytics, and Recent Data pages
+    └── services/        # ThingSpeak API services
 ```
 
-### Development Tools
-```json
-{
-  "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.4.1",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.11"
-  }
-}
-```
+---
 
-### Handy Scripts
-```json
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint ."
-  }
-}
-```
+## 📊 Data Interpretation
 
-## Data Interpretation 📊
+- **TDS (Total Dissolved Solids)**:
+  - `< 300 ppm`: Excellent drinking water
+  - `300 - 600 ppm`: Good 
+  - `> 900 ppm`: Poor / Requires Treatment
+- **Anomaly Score**: A machine learning output where high scores indicate irregular or contaminated water flow requiring immediate attention.
 
-Understanding your water quality data:
+---
 
-- EC Values:
-  - Below 300 μS/cm: Very pure water
-  - 300-600 μS/cm: Good for drinking water
-  - Above 900 μS/cm: May require treatment
+## 🤝 Contributors
 
-## Want to Contribute? 🤝
+This project is actively maintained and developed by:
+- [iamchitturi](https://github.com/iamchitturi)
+- [Yoganand242](https://github.com/Yoganand242)
 
-We'd love to have your help! Here's how you can contribute:
+## 📝 License
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License 📝
-
-This project is licensed under the MIT License - feel free to use it for your own projects!
-
-## Get in Touch 📫
-
-Have questions? Want to chat? Reach out to us!
-
-Mail id - [niranjan.galla.7@gmail.com]
-
-Project Link: [https://github.com/zeusXtruealpha/IOT]
-
-
-![Screenshot 2025-05-16 9 01 20 PM](https://github.com/user-attachments/assets/a5447c08-e44c-4397-a8ff-7d196cf3a9c2)
-![Screenshot 2025-05-16 9 01 31 PM](https://github.com/user-attachments/assets/744d0594-115b-4b26-910b-29720459a6b6)
-![Screenshot 2025-05-16 9 01 38 PM](https://github.com/user-attachments/assets/2d968a9e-7c88-4e84-8183-4d64660b5ed6)
-![Screenshot 2025-05-16 9 01 44 PM](https://github.com/user-attachments/assets/2dc16e9c-3468-478d-9f72-480972cd0794)
-![Screenshot 2025-05-16 9 01 56 PM](https://github.com/user-attachments/assets/f3c7a2d2-013d-43d4-970f-29e14e234eaa)
-![Screenshot 2025-05-16 9 02 04 PM](https://github.com/user-attachments/assets/df531b87-821d-48a9-8a8b-7bd6345deacd)
-![Screenshot 2025-05-16 9 02 19 PM](https://github.com/user-attachments/assets/440ca231-a0ac-4059-a820-b42658f9605a)
-![Screenshot 2025-05-16 9 02 56 PM](https://github.com/user-attachments/assets/9389da22-17ae-4507-b0bf-fcf37b0127e8)
-![Screenshot 2025-05-16 9 03 13 PM](https://github.com/user-attachments/assets/bdd26f09-8a24-4968-a575-5f84d84602ca)
-![Screenshot 2025-05-16 9 03 25 PM](https://github.com/user-attachments/assets/3c9917d6-3962-484b-bc29-2979422dd040)
-![Screenshot 2025-05-16 9 03 36 PM](https://github.com/user-attachments/assets/95a5cf92-7b2f-42ba-8026-dfa8c9206f5f)
-![Screenshot 2025-05-16 9 04 10 PM](https://github.com/user-attachments/assets/77aad36b-d303-4164-97fe-607df71d4732)
+This project is licensed under the MIT License. Feel free to use, modify, and distribute it as needed!
